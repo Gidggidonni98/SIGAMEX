@@ -28,6 +28,7 @@ app.use(require('./routes/index.js'));
 app.use('/user', require('./routes/user.js'));
 app.use('/person', require('./routes/person.js'));
 app.use('/empresa', require('./routes/empresa.js'));
+app.use('/tabla', require('./routes/tabla.js'));
 
 
 

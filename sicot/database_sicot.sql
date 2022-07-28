@@ -27,32 +27,50 @@ CREATE TABLE user(
     FOREIGN KEY (person) REFERENCES person(idPerson)
 );
 
-
-CREATE TABLE periodo(
-    idPeriodo TINYINT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_periodo_id PRIMARY KEY(idPeriodo)
-);
-
-CREATE  TABLE tablaIsr(
-    idIsr INT NOT NULL AUTO_INCREMENT,
-    limiteI DOUBLE(11,2),
-    limiteS DOUBLE(11,2) NOT NULL,
+CREATE  TABLE isrSemanal(
+    idIsrS INT NOT NULL AUTO_INCREMENT,
+    limiteInferior DOUBLE(11,2),
+    limiteSuperior DOUBLE(11,2) NOT NULL,
     cuota DOUBLE(11,2) NOT NULL,
     excedente DOUBLE(11,2) NOT NULL,
-    periodo TINYINT NOT NULL,
-    CONSTRAINT pk_tablaIsr_id PRIMARY KEY(idIsr),
-    FOREIGN KEY (periodo) REFERENCES periodo(idPeriodo)
+    CONSTRAINT pk_isrSemanal_id PRIMARY KEY(idIsrS)
 );
-
-CREATE TABLE subsidio(
-    idSubsidio INT NOT NULL AUTO_INCREMENT,
-    limInf DOUBLE(11,2) NOT NULL,
-    limSup DOUBLE(11,2) NOT NULL,
+CREATE  TABLE isrQuincenal(
+    idIsrQ INT NOT NULL AUTO_INCREMENT,
+   limiteInferior DOUBLE(11,2),
+    limiteSuperior DOUBLE(11,2) NOT NULL,
     cuota DOUBLE(11,2) NOT NULL,
-    periodo TINYINT NOT NULL,
-    CONSTRAINT pk_subsidio_id PRIMARY KEY(idSubsidio),
-    FOREIGN KEY (periodo) REFERENCES periodo(idPeriodo)
+    excedente DOUBLE(11,2) NOT NULL,
+    CONSTRAINT pk_isrQuincenal_id PRIMARY KEY(idIsrQ)
+);
+CREATE  TABLE isrMensual(
+    idIsrM INT NOT NULL AUTO_INCREMENT,
+    limiteInferior DOUBLE(11,2),
+    limiteSuperior DOUBLE(11,2) NOT NULL,
+    cuota DOUBLE(11,2) NOT NULL,
+    excedente DOUBLE(11,2) NOT NULL,
+    CONSTRAINT pk_isrMensual_id PRIMARY KEY(idIsrM)
+);
+CREATE TABLE subsidioSemanal(
+    idSubsidioS INT NOT NULL AUTO_INCREMENT,
+    limiteInferior DOUBLE(11,2) NOT NULL,
+    limiteSuperior DOUBLE(11,2) NOT NULL,
+    subsidio DOUBLE(11,2) NOT NULL,
+    CONSTRAINT pk_subsidioSemanal_id PRIMARY KEY(idSubsidioS)
+);
+CREATE TABLE subsidioQuincenal(
+    idSubsidioQ INT NOT NULL AUTO_INCREMENT,
+   limiteInferior DOUBLE(11,2) NOT NULL,
+    limiteSuperior DOUBLE(11,2) NOT NULL,
+    subsidio DOUBLE(11,2) NOT NULL,
+    CONSTRAINT pk_subsidioQuincenal_id PRIMARY KEY(idSubsidioQ)
+);
+CREATE TABLE subsidioMensual(
+    idSubsidioM INT NOT NULL AUTO_INCREMENT,
+    limiteInferior DOUBLE(11,2) NOT NULL,
+    limiteSuperior DOUBLE(11,2) NOT NULL,
+    subsidio DOUBLE(11,2) NOT NULL,
+    CONSTRAINT pk_subsidioMensual_id PRIMARY KEY(idSubsidioM)
 );
 
 CREATE TABLE entidad(
